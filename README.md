@@ -31,7 +31,7 @@
 ### Мои работы
 
 - Приложение ресторанов и кафе на React/Redux
-[Код](https://github.com/linkoln-1/into-zorro-react-app.git) | [Демо](https://into-zorro-app.herokuapp.com/)
+[Код](https://github.com/linkoln-1/into-zorro-react-app.git) | [Демо](https://into-zorro-restaurant.onrender.com/)
   
 - Десктопный чат на React/Redux
 [Код](https://github.com/linkoln-1/react-chat-app.git) | [Демо](https://mysterious-woodland-23317.herokuapp.com/)
