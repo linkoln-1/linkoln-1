@@ -68,11 +68,7 @@ Founder of **[LinCode](https://t.me/lincode_x)** — an online programming schoo
 
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/linkoln-1/linkoln-1/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/linkoln-1/linkoln-1/output/github-contribution-grid-snake.svg" />
-  <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/linkoln-1/linkoln-1/output/github-contribution-grid-snake.svg" />
-</picture>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=linkoln-1&theme=github-compact&hide_border=true&bg_color=0d1117&color=61DAFB&line=61DAFB&point=ffffff&area=true" alt="Contribution activity graph" />
 
 </div>
 
