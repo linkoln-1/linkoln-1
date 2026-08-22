@@ -56,8 +56,8 @@ Founder of **[LinCode](https://t.me/lincode_x)** — an online programming schoo
 <div align="center">
 
 <a href="https://github.com/linkoln-1">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=linkoln-1&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=61DAFB&icon_color=61DAFB" alt="GitHub stats" />
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=linkoln-1&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=61DAFB&langs_count=8" alt="Top languages" />
+  <img height="170" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=linkoln-1&theme=github_dark" alt="GitHub stats" />
+  <img height="170" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=linkoln-1&theme=github_dark" alt="Top languages" />
 </a>
 
 <a href="https://github.com/linkoln-1">
