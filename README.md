@@ -77,10 +77,7 @@ Founder of **[LinCode](https://t.me/lincode_x)** — an online programming schoo
 | Project | Description | Stack |
 |---------|-------------|-------|
 | [horeca](https://github.com/linkoln-1/horeca) | B2B platform for the HoReCa industry | TypeScript, Next.js, Mantine |
-| [lincode-web-messenger](https://github.com/linkoln-1/lincode-web-messenger) | Real-time web messenger | TypeScript, React, WebSocket |
-| [Warehouse-React](https://github.com/linkoln-1/Warehouse-React) | Warehouse & inventory management | React, Redux |
 | [into-zorro-react-app](https://github.com/linkoln-1/into-zorro-react-app) · [demo](https://into-zorro-restaurant.onrender.com/) | Restaurant browsing application | React |
-| [amoris-bot](https://github.com/linkoln-1/amoris-bot) | Telegram bot | Python, aiogram |
 
 ## 🎓 LinCode School
 
