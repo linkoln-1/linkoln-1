@@ -85,12 +85,3 @@ Founder & instructor. Program: **HTML/CSS → JS Core & Advanced → Git → Typ
 
 > **100+ students**, several graduates already work as professional developers.
 
----
-
-<div align="center">
-
-*I transform complex business requirements into scalable, maintainable and user-friendly products.*
-
-![Profile views](https://komarev.com/ghpvc/?username=linkoln-1&color=61DAFB&style=flat-square&label=Profile+views)
-
-</div>
