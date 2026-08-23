@@ -70,8 +70,7 @@ Founder of **[LinCode](https://t.me/lincode_x)** — an online programming schoo
 
 | Project | Description | Stack |
 |---------|-------------|-------|
-| [horeca](https://github.com/linkoln-1/horeca) | B2B platform for the HoReCa industry | TypeScript, Next.js, Mantine |
-| [into-zorro-react-app](https://github.com/linkoln-1/into-zorro-react-app) · [demo](https://into-zorro-restaurant.onrender.com/) | Restaurant browsing application | React |
+| [mac-dynamic-island](https://github.com/linkoln-1/mac-dynamic-island) | Dynamic Island for the MacBook notch — screenshot buffer, Now Playing, AI agent monitor (Claude Code / Codex) | Swift, SwiftUI, AppKit |
 
 ## 🎓 LinCode School
 
