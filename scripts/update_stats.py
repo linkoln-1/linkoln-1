@@ -8,6 +8,7 @@ Usage: python3 scripts/update_stats.py
 """
 import json
 import subprocess
+from datetime import datetime, timedelta, timezone
 
 BG = "#0d1117"
 FG = "#c9d1d9"
@@ -17,6 +18,9 @@ FONT = "'Segoe UI', Ubuntu, Sans-Serif"
 CARD_W = 420
 CARD_H = 195
 TOP_LANGS = 8
+ACTIVITY_DAYS = 182
+ACT_W = 880
+ACT_H = 210
 
 
 def gql(query: str, **variables) -> dict:
@@ -154,12 +158,84 @@ def render_langs_card(langs: dict) -> str:
 """
 
 
+def fetch_activity() -> list[dict]:
+    now = datetime.now(timezone.utc)
+    start = now - timedelta(days=ACTIVITY_DAYS)
+    data = gql(
+        """
+        query($from: DateTime!, $to: DateTime!) {
+          viewer {
+            contributionsCollection(from: $from, to: $to) {
+              contributionCalendar {
+                weeks { contributionDays { date contributionCount } }
+              }
+            }
+          }
+        }
+        """,
+        **{"from": start.isoformat(), "to": now.isoformat()},
+    )
+    weeks = data["viewer"]["contributionsCollection"]["contributionCalendar"]["weeks"]
+    return [day for week in weeks for day in week["contributionDays"]]
+
+
+def render_activity_card(days: list[dict]) -> str:
+    pad_left, pad_right, pad_top, pad_bottom = 45, 20, 55, 30
+    plot_w = ACT_W - pad_left - pad_right
+    plot_h = ACT_H - pad_top - pad_bottom
+    counts = [d["contributionCount"] for d in days]
+    peak = max(counts) or 1
+    step = plot_w / max(len(days) - 1, 1)
+
+    def point(i: int, count: int) -> tuple[float, float]:
+        return pad_left + i * step, pad_top + plot_h * (1 - count / peak)
+
+    coords = [point(i, c) for i, c in enumerate(counts)]
+    line = " ".join(f"{x:.1f},{y:.1f}" for x, y in coords)
+    baseline = pad_top + plot_h
+    area = f"{pad_left},{baseline} {line} {coords[-1][0]:.1f},{baseline}"
+
+    months_svg = ""
+    for i, day in enumerate(days):
+        if day["date"][8:10] == "01":
+            label = datetime.fromisoformat(day["date"]).strftime("%b")
+            months_svg += (
+                f'<text x="{coords[i][0]:.1f}" y="{ACT_H - 10}" fill="{MUTED}" '
+                f'font-size="12" text-anchor="middle">{label}</text>'
+            )
+
+    grid_svg = ""
+    for value in (0, peak):
+        y = pad_top + plot_h * (1 - value / peak)
+        grid_svg += (
+            f'<line x1="{pad_left}" y1="{y:.1f}" x2="{ACT_W - pad_right}" y2="{y:.1f}" '
+            f'stroke="{MUTED}" stroke-opacity="0.2" stroke-dasharray="3,3"/>'
+            f'<text x="{pad_left - 8}" y="{y + 4:.1f}" fill="{MUTED}" font-size="11" '
+            f'text-anchor="end">{value}</text>'
+        )
+
+    last_x, last_y = coords[-1]
+    return f"""<svg width="{ACT_W}" height="{ACT_H}" viewBox="0 0 {ACT_W} {ACT_H}" xmlns="http://www.w3.org/2000/svg" font-family="{FONT}">
+  <rect width="{ACT_W}" height="{ACT_H}" rx="10" fill="{BG}"/>
+  <text x="25" y="35" fill="{ACCENT}" font-size="18" font-weight="600">Contribution Activity — last 6 months</text>
+  {grid_svg}
+  <polygon points="{area}" fill="{ACCENT}" fill-opacity="0.12"/>
+  <polyline points="{line}" fill="none" stroke="{ACCENT}" stroke-width="1.5" stroke-linejoin="round"/>
+  <circle cx="{last_x:.1f}" cy="{last_y:.1f}" r="3" fill="#ffffff"/>
+  {months_svg}
+</svg>
+"""
+
+
 def main() -> None:
     stats = fetch_stats()
     with open("assets/stats-card.svg", "w") as f:
         f.write(render_stats_card(stats))
     with open("assets/langs-card.svg", "w") as f:
         f.write(render_langs_card(stats["langs"]))
+    days = fetch_activity()
+    with open("assets/activity-card.svg", "w") as f:
+        f.write(render_activity_card(days))
     print(f"commits={stats['commits']} repos={stats['repos']} (private={stats['private_repos']})")
     top = sorted(stats["langs"].items(), key=lambda kv: kv[1]["size"], reverse=True)[:TOP_LANGS]
     total = sum(v["size"] for v in stats["langs"].values()) or 1

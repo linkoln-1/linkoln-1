@@ -62,7 +62,7 @@ Founder of **[LinCode](https://t.me/lincode_x)** — an online programming schoo
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=linkoln-1&theme=github-compact&hide_border=true&bg_color=0d1117&color=61DAFB&line=61DAFB&point=ffffff&area=true" alt="Contribution activity graph" />
+<img src="assets/activity-card.svg" alt="Contribution activity — last 6 months" />
 
 </div>
 
