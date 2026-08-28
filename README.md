@@ -71,6 +71,7 @@ Founder of **[LinCode](https://t.me/lincode_x)** — an online programming schoo
 | Project | Description | Stack |
 |---------|-------------|-------|
 | [mac-dynamic-island](https://github.com/linkoln-1/mac-dynamic-island) | Dynamic Island for the MacBook notch — screenshot buffer, Now Playing, AI agent monitor (Claude Code / Codex) | Swift, SwiftUI, AppKit |
+| [FinPlan](https://github.com/linkoln-1/FinPlan) | Local-first iOS financial planner — goals with month-by-month forecasts, Safe to Spend, What-If scenarios, purchase impact, budgets, widgets | Swift, SwiftUI, SwiftData, WidgetKit |
 
 ## 🎓 LinCode School
 
